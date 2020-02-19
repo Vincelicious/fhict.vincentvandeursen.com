@@ -1,0 +1,67 @@
+title: Assignment
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          localizable: false
+          listable: hidden
+          display: Title
+      -
+        handle: body
+        field:
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - code
+            - codeblock
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: true
+          fullscreen: true
+          allow_source: true
+          type: bard
+          localizable: false
+          listable: hidden
+          display: Body
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          generate: true
+          type: slug
+          localizable: false
+          listable: hidden
+          display: Slug
+      -
+        handle: date
+        field:
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          mode: single
+          type: date
+          localizable: false
+          listable: hidden
+          display: Date

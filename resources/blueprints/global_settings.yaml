@@ -27,18 +27,6 @@ sections:
                 type: text
                 localizable: false
                 display: URL
-            -
-              handle: icon
-              field:
-                container: assets
-                mode: list
-                restrict: true
-                folder: site/social-icons
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                localizable: false
-                display: Icon
           mode: table
           add_row: 'Add Link'
           reorderable: true

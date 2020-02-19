@@ -1,4 +1,4 @@
-title: Page
+title: Gate
 sections:
   main:
     display: Main
@@ -6,13 +6,15 @@ sections:
       -
         handle: title
         field:
-          character_limit: 0
           type: text
           localizable: false
+          listable: hidden
           display: Title
       -
-        handle: template
+        handle: slug
         field:
-          type: template
+          generate: true
+          type: slug
           localizable: false
-          display: Template
+          listable: hidden
+          display: Slug
