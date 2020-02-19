@@ -1,0 +1,14 @@
+id: 9242876a-41c4-42f8-96f8-ac92d6025406
+title: Settings
+blueprint: global_settings
+data:
+  site_name: 'Vincent van Deursen'
+  social:
+    -
+      name: Github
+      url: 'https://github.com/statamic/starter-kit-cool-writings'
+      icon: site/social-icons/github.svg
+    -
+      name: Email
+      url: hello@vincentvandeursen.com
+      icon: site/social-icons/email.svg
