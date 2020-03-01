@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300&display=swap');
+
+.content {
+  @apply max-w-2xl flex flex-col items-center;
+}
+
+.content > h2{
+  @apply py-4 text-4xl w-full;
+}
+
+.content > p {
+  @apply mb-6 text-lg leading-relaxed;
+}
+
+.date::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background-color: #000;
+  opacity: .5;
+  margin: 0 8px 3px;
+}
+
+.content > .image-large {
+  max-width: 1200px;
+}

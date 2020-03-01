@@ -1,0 +1,35 @@
+<div class="container mx-auto px-4 py-40">
+  <h1 class="text-5xl">{{ title }}</h1>
+  {{ class }}
+    <h3 class="text-5xl opacity-25">{{ title }}</h3>
+  {{ /class }}
+</div>
+
+<div class="px-4 py-20 flex justify-center" style="background-color: {{ background_color }};">
+  {{ cover }}
+    <img  class="max-w-3xl" src="{{ url }}" alt="{{ alt }}">
+  {{ /cover }}
+</div>
+
+<div class="container mx-auto pt-24 opacity-50 -mb-6">
+  <span class="date">{{ date }}</span>
+  {{ gate }}<span>{{ title }}</span>{{ /gate }}
+</div>
+
+<div class="content mx-auto px-4 pb-24 relative">
+  {{ body }}
+
+    {{ if type=="text" }}
+
+      {{ text }}
+
+    {{ elseif type=="image" }}
+
+      {{ image }}
+        <img class="pt-8 pb-12 image-large" src="{{ url }}" alt="{{ alt }}">
+      {{ /image }}
+
+    {{ /if }}
+
+  {{ /body }}
+</div>

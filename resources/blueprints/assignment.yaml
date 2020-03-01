@@ -1,7 +1,7 @@
 title: Assignment
 sections:
-  main:
-    display: Main
+  content:
+    display: Content
     fields:
       -
         handle: title
@@ -39,6 +39,41 @@ sections:
           localizable: false
           listable: hidden
           display: Body
+          sets:
+            image:
+              display: Image
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    restrict: false
+                    allow_uploads: true
+                    type: assets
+                    localizable: false
+                    listable: hidden
+                    display: Image
+                    container: assets
+                -
+                  handle: caption
+                  field:
+                    type: text
+                    localizable: false
+                    listable: hidden
+                    display: Caption
+                    width: 66
+                -
+                  handle: size
+                  field:
+                    options:
+                      small: Small
+                      large: Large
+                    inline: true
+                    type: radio
+                    localizable: false
+                    listable: hidden
+                    display: Size
+                    width: 33
   sidebar:
     display: Sidebar
     fields:
@@ -65,28 +100,32 @@ sections:
           localizable: false
           listable: hidden
           display: Date
+  cover:
+    display: Cover
+    fields:
       -
         handle: cover
         field:
-          mode: list
+          mode: grid
           restrict: false
           allow_uploads: true
-          max_files: 1
           type: assets
           localizable: false
           listable: hidden
           display: Cover
+          container: assets
       -
         handle: fit
         field:
           options:
-            contain: Contain
             cover: Cover
+            contain: Contain
           inline: true
           type: radio
           localizable: false
           listable: hidden
           display: Fit
+          width: 33
       -
         handle: background_color
         field:
@@ -100,3 +139,4 @@ sections:
           display: 'Background Color'
           if:
             fit: 'equals contain'
+          width: 33
