@@ -65,3 +65,38 @@ sections:
           localizable: false
           listable: hidden
           display: Date
+      -
+        handle: cover
+        field:
+          mode: list
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          type: assets
+          localizable: false
+          listable: hidden
+          display: Cover
+      -
+        handle: fit
+        field:
+          options:
+            contain: Contain
+            cover: Cover
+          inline: true
+          type: radio
+          localizable: false
+          listable: hidden
+          display: Fit
+      -
+        handle: background_color
+        field:
+          theme: classic
+          color_modes:
+            - hex
+          default_color_mode: HEXA
+          type: color
+          localizable: false
+          listable: hidden
+          display: 'Background Color'
+          if:
+            fit: 'equals contain'
