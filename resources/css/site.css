@@ -1,15 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300&display=swap');
 
+.assignments-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-column-gap: 120px;
+}
+
+.assignments-image {
+  
+}
+
+.assignments-image-background {
+  width: 480px;
+  height: 480px;
+  border-radius: 9999px;
+  position: absolute;
+  right: 0;
+}
+
 .content {
   @apply max-w-2xl flex flex-col items-center;
 }
 
-.content > h2{
+ .content > h2 {
   @apply py-4 text-4xl w-full;
+}
+
+.content > h3 {
+  @apply py-2 text-2xl w-full;
 }
 
 .content > p {
   @apply mb-6 text-lg leading-relaxed;
+}
+
+.content > ul {
+  @apply w-full;
+}
+
+.content > .image-large {
+  max-width: 1200px;
+}
+
+.dot-after::After {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #000;
+  margin: 0 8px 3px;
 }
 
 .date::after {
@@ -21,8 +61,4 @@
   background-color: #000;
   opacity: .5;
   margin: 0 8px 3px;
-}
-
-.content > .image-large {
-  max-width: 1200px;
 }
