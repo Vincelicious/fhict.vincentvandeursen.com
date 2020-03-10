@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 .assignments-grid {
   display: grid;
@@ -18,45 +18,76 @@
 
 .content {
   @apply max-w-2xl flex flex-col items-center;
-}
 
- .content > h2 {
-  @apply py-4 text-4xl w-full;
-}
+  & > h2 {
+    @apply py-4 text-4xl w-full;
+  }
 
-.content > h3 {
-  @apply py-2 text-2xl w-full;
-}
+  & > h3 {
+    @apply py-2 text-2xl w-full;
+  }
 
-.content > p {
-  @apply mb-6 text-lg leading-relaxed;
-}
+  & > p {
+    @apply mb-6 text-lg leading-relaxed;
+  }
 
-.content > ul {
-  @apply w-full;
+  & > blockquote {
+    @apply italic;
+  }
+
+  & > blockquote > p {
+    @apply mb-6 text-lg leading-relaxed;
+  }
+
+  & a {
+    @apply underline;
+  }
+
+  & strong {
+    @apply font-normal;
+  }
+
+  & > ul {
+    @apply w-full pl-0 list-disc ml-10 mb-6 text-lg;
+      & > li {
+        @apply mb-1;
+      }
+  }
+
+  & > ol {
+    @apply w-full pl-0 list-decimal ml-10 mb-6 text-lg;
+      & > li {
+          @apply mb-1;
+      }
+  }
+
+  & > p code,
+  & > ul li *:not(pre) code,
+  & > ul li > code,
+  & > ol li *:not(pre) code,
+  & > ol li > code {
+      @apply inline-block bg-gray-200 text-gray-800 text-sm p-1 leading-none whitespace-no-wrap font-mono align-baseline;
+  }
+
+  & > pre {
+    @apply w-full;
+  }
+
+  & > pre code {
+      @apply flex p-4 bg-gray-200 text-gray-800 text-sm leading-loose mb-6;
+  }
 }
 
 .content > .image-large {
   max-width: 1200px;
 }
 
-.dot-after::After {
+.dot-after::after {
   content: '';
   display: inline-block;
   width: 3px;
   height: 3px;
   border-radius: 999px;
   background-color: #000;
-  margin: 0 8px 3px;
-}
-
-.date::after {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-radius: 999px;
-  background-color: #000;
-  opacity: .5;
   margin: 0 8px 3px;
 }
