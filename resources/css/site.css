@@ -6,16 +6,14 @@
   grid-column-gap: 120px;
 }
 
-.assignments-image {
-  
-}
-
 .assignments-image-background {
   width: 480px;
   height: 480px;
-  border-radius: 9999px;
-  position: absolute;
-  right: 0;
+}
+
+.assignments-image {
+  top: 80px;
+  right: -120px;
 }
 
 .content {

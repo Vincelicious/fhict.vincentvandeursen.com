@@ -1,2 +1,8 @@
-// Alpine.js handles the show/hide of the mobile nav
-import 'alpinejs'
+import Vue from "vue";
+
+let site = new Vue({
+  el: "#assignments",
+  data: {
+    cover: ""
+  }
+})
