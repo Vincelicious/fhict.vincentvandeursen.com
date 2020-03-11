@@ -3,7 +3,7 @@
 .assignments-grid {
   display: grid;
   grid-template-columns: 300px 1fr;
-  grid-column-gap: 120px;
+  grid-column-gap: 160px;
 }
 
 .assignments-image-background {

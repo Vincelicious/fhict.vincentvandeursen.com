@@ -7,5 +7,5 @@ preferences:
     assignments:
       columns:
         - title
-        - date
         - class
+        - date
