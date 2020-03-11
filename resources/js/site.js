@@ -1,13 +1,5 @@
-import Vue from "vue";
 import barba from "@barba/core";
 import gsap from "gsap";
-
-let site = new Vue({
-  el: "#assignments",
-  data: {
-    cover: ""
-  }
-})
 
 barba.init({
   sync: true,
