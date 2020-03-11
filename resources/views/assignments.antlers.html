@@ -14,13 +14,13 @@
     {{ collection:assignments }}
       <li class="flex items-baseline border-b px-8 pb-2 mb-8">
         <span class="opacity-25 dot-after">Dec 27, 2019</span>
-        <span class="opacity-25">
+        <span class="opacity-25 w-8">
           {{ class }}
             {{ abbreviation }}
           {{ /class }}
         </span>
         <a href="{{ url }}">
-          <h4 class="text-3xl ml-20"
+          <h4 class="text-3xl ml-16"
               v-on:mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
               {{ title }}
           </h4>
