@@ -100,6 +100,25 @@ sections:
           localizable: false
           listable: hidden
           display: Date
+      -
+        handle: class
+        field:
+          max_items: 1
+          mode: default
+          type: taxonomy
+          localizable: false
+          listable: hidden
+          display: Class
+      -
+        handle: related_assignments
+        field:
+          mode: default
+          collections:
+            - assignments
+          type: entries
+          localizable: false
+          listable: hidden
+          display: 'Related Assignments'
   cover:
     display: Cover
     fields:

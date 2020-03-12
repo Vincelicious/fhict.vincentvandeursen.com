@@ -4,7 +4,7 @@
     <h2 class="text-4xl opacity-25 mb-24">See for yourself</h2>
 
     <div class="relative">
-      <div class="assignments-image-background bg-gray-200 rounded-full absolute right-0">
+      <div class="assignments-image-background rounded-full absolute right-0">
         <img class="assignments-image absolute" :src="cover" alt="">
       </div>
     </div>
@@ -13,7 +13,7 @@
   <ul>
     {{ collection:assignments }}
       <li class="flex items-baseline border-b px-8 pb-2 mb-8">
-        <span class="opacity-25 dot-after">Dec 27, 2019</span>
+        <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
         <span class="opacity-25 w-8">
           {{ class }}
             {{ abbreviation }}
