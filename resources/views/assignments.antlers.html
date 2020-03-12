@@ -13,14 +13,12 @@
   <ul>
     {{ collection:assignments }}
       <li class="flex items-baseline border-b px-8 pb-2 mb-8">
-        <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
-        <span class="opacity-25 w-8">
-          {{ class }}
-            {{ abbreviation }}
-          {{ /class }}
-        </span>
+        <div class="w-64">
+          <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
+          <span class="opacity-25">{{ class }}{{ abbreviation }}{{ /class }}</span>
+        </div>
         <a href="{{ url }}">
-          <h4 class="text-3xl ml-16" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
+          <h4 class="text-3xl" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
               {{ title }}
           </h4>
         </a>
