@@ -616,6 +616,35 @@ video {
   right: -120px;
 }
 
+.button {
+  position: relative;
+  font-weight: 400
+}
+
+.button .icon {
+    display: inline;
+    margin-left: 15px;
+  }
+
+.button::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-color: #eeeeee;
+  border-radius: 999px;
+  position: absolute;
+  left: -20px;
+  top: -9px;
+  z-index: -5;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.button:hover::before {
+  width: calc(100% + 40px);
+}
+
 .content {
   max-width: 42rem;
   display: -webkit-box;
