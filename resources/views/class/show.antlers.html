@@ -1,0 +1,35 @@
+<div class="assignments-grid container mx-auto px-4 pt-4" x-data="{ cover: '' }">
+  <div class="leading-tight">
+    <h1 class="text-4xl">What am I doing?</h1>
+    <h2 class="text-4xl opacity-25 mb-24">{{ title }}</h2>
+
+    <div class="relative">
+      <div class="assignments-image-background rounded-full absolute right-0">
+        <img class="assignments-image absolute" :src="cover" alt="">
+      </div>
+    </div>
+  </div>
+
+  {{ entries paginate="99" sort="date:desc" }}
+    <ul class="assignments-list">
+      {{ results }}
+        <li class="flex items-baseline border-b px-8 pb-2 mb-10">
+          <div class="w-64">
+            <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
+            <span class="opacity-25">{{ class }}{{ abbreviation }}{{ /class }}</span>
+          </div>
+          <a href="{{ url }}">
+            <h4 class="assignment-title text-3xl relative" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
+              {{ title }}
+            </h4>
+          </a>
+        </li>
+      {{ /results }}
+    </ul>
+  {{ /entries }}
+</div>
+
+<div class="mx-auto px-4 text-center leading-tight py-40">
+  <h5 class="text-4xl">Thanks for scrolling,</h5>
+  <h5 class="text-4xl opacity-25">that's all folks.</h5>
+</div>

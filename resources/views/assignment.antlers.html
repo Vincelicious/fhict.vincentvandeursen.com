@@ -12,9 +12,11 @@
 </div>
 
 <div class="container mx-auto px-4 mt-24 mb-32 relative flex flex-col items-center">
-  <div class="assignment-date opacity-50 absolute left-0 ml-4">
+  <div class="opacity-50 text-lg absolute left-0 top-0 ml-4">
     <span class="dot-after">{{ date }}</span>
-    <span>{{ class }}{{ abbreviation }}{{ /class }}</span>
+    {{ class }}
+      <a  href="{{ url }}">{{ abbreviation }}</a>
+    {{ /class }}
   </div>
 
   {{ body }}

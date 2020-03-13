@@ -6,6 +6,10 @@
   grid-column-gap: 160px;
 }
 
+.assignments-list {
+  min-height: 680px;
+}
+
 .assignments-image-background {
   width: 480px;
   height: 480px;
@@ -32,10 +36,6 @@
 
 .assignment-title:hover::before {
   width: 100%;
-}
-
-.assignment-date {
-  top: 4px;
 }
 
 .button {
