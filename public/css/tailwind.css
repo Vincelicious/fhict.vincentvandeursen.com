@@ -616,6 +616,24 @@ video {
   right: -120px;
 }
 
+.assignment-title::before {
+  content: '';
+  height: 16px;
+  width: 0;
+  display: block;
+  background-color: #f6f6f6;
+  position: absolute;
+  bottom: 2px;
+  z-index: -1;
+  left: -16px;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+
+.assignment-title:hover::before {
+  width: 100%;
+}
+
 .button {
   position: relative;
   font-weight: 400
