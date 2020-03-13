@@ -2,7 +2,8 @@ import barba from "@barba/core";
 import gsap from "gsap";
 
 barba.init({
-  sync: true,
+  // sync: true,
+  debug: true,
   transitions: [{
     leave() {
       const done = this.async();

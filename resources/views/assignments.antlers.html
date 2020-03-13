@@ -1,4 +1,4 @@
-<div class="assignments-grid container mx-auto px-4 pt-40" x-data="{ cover: '' }">
+<div class="assignments-grid container mx-auto px-4 pt-20" x-data="{ cover: '' }">
   <div class="leading-tight">
     <h1 class="text-4xl">What am I doing?</h1>
     <h2 class="text-4xl opacity-25 mb-24">See for yourself</h2>
@@ -19,7 +19,7 @@
         </div>
         <a href="{{ url }}">
           <h4 class="text-3xl" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
-              {{ title }}
+            {{ title }}
           </h4>
         </a>
       </li>

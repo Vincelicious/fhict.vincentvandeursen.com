@@ -39,7 +39,7 @@
   <div class="assignments-grid">
     <div>
       <h4 class="text-4xl">Still not convinced?</h4>
-      <h4 class="text-4xl opacity-25 pb-20">Browse some more</h4>
+      <h4 class="text-4xl opacity-25 pb-16">Browse some more</h4>
       <a href="/" class="button">
         All assignments
         <svg class="icon" width="6" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,9 +56,7 @@
             <span class="opacity-25">{{ class }}{{ abbreviation }}{{ /class }}</span>
           </div>
           <a href="{{ url }}">
-            <h4 class="text-3xl" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
-                {{ title }}
-            </h4>
+            <h4 class="text-3xl">{{ title }}</h4>
           </a>
         </li> 
       {{ /related_assignments }}
