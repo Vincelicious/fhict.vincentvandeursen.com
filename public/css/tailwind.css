@@ -634,6 +634,10 @@ video {
   width: 100%;
 }
 
+.assignment-date {
+  top: 4px;
+}
+
 .button {
   position: relative;
   font-weight: 400
@@ -649,7 +653,7 @@ video {
   width: 40px;
   height: 40px;
   display: block;
-  background-color: #eeeeee;
+  background-color: #f6f6f6;
   border-radius: 999px;
   position: absolute;
   left: -20px;
@@ -663,29 +667,16 @@ video {
   width: calc(100% + 40px);
 }
 
-.content {
-  max-width: 42rem;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center
-}
-
 .content > h2 {
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 2.25rem;
-    width: 100%;
   }
 
 .content > h3 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 1.5rem;
-    width: 100%;
   }
 
 .content > p {
@@ -713,7 +704,6 @@ video {
   }
 
 .content > ul {
-    width: 100%;
     padding-left: 0;
     list-style-type: disc;
     margin-left: 2.5rem;
@@ -726,7 +716,6 @@ video {
     }
 
 .content > ol {
-    width: 100%;
     padding-left: 0;
     list-style-type: decimal;
     margin-left: 2.5rem;
@@ -769,10 +758,6 @@ video {
     margin-bottom: 1.5rem;
   }
 
-.content > .image-large {
-  max-width: 1200px;
-}
-
 .dot-after::after {
   content: '';
   display: inline-block;
@@ -792,33 +777,6 @@ video {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-}
-
-.transition-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  width: 500px;
-  margin: 0 auto;
-  color:white;
-  font-size: 2.4rem !important;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px !important;
-  opacity: 0;
-  will-change: opacity, transform;
 }
 
 .transition-background {
