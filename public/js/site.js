@@ -5605,7 +5605,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   // sync: true,
-  debug: true,
+  // debug: true,
   transitions: [{
     leave: function leave() {
       var done = this.async();

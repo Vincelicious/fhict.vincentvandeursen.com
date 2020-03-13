@@ -36,6 +36,12 @@ return [
         //     'searchables' => 'collection:blog',
         // ],
 
+        'assignments' => [
+            'driver' => 'algolia',
+            'searchables' => 'collection:assignments',
+            'fields' => ['title', 'class', 'date', 'cover', 'color']
+        ],
+
     ],
 
     /*

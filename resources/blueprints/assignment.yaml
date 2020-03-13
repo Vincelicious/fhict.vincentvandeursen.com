@@ -146,7 +146,7 @@ sections:
           display: Fit
           width: 33
       -
-        handle: background_color
+        handle: color
         field:
           theme: classic
           color_modes:
@@ -155,7 +155,7 @@ sections:
           type: color
           localizable: false
           listable: hidden
-          display: 'Background Color'
+          display: Color
+          width: 33
           if:
             fit: 'equals contain'
-          width: 33
