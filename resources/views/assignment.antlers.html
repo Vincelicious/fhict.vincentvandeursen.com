@@ -29,11 +29,25 @@
 
     {{ elseif type=="image" }}
 
-      <div class="container mx-auto">
-        {{ image }}
-          <img class="pt-8 pb-12 w-full" src="{{ url }}" alt="{{ alt }}">
-        {{ /image }}
-      </div>
+      {{ if size=="small" }}
+
+        <figure class="container mx-auto text-center max-w-2xl">
+          {{ image }}
+            <img class="pt-8 pb-4 w-full" src="{{ url }}" alt="{{ alt }}">
+          {{ /image }}
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+      {{ elseif size=="large" }}
+
+        <figure class="container mx-auto text-center">
+          {{ image }}
+            <img class="pt-8 pb-4 w-full" src="{{ url }}" alt="{{ alt }}">
+          {{ /image }}
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+      {{ /if }}
 
     {{ /if }}
 
