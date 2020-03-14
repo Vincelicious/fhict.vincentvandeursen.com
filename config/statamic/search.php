@@ -42,6 +42,11 @@ return [
             'fields' => ['id', 'title', 'class', 'date', 'cover', 'color', 'url']
         ],
 
+        'classes' => [
+            'driver' => 'algolia',
+            'searchables' => 'taxonomy:class',
+            'fields' => ['id', 'title', 'abbreviation', 'url']
+        ]
     ],
 
     /*
