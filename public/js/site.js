@@ -7271,6 +7271,24 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
           return done();
         }
       });
+    },
+    enter: function enter() {
+      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        delay: .3,
+        duration: .5,
+        translateY: 10,
+        opacity: 0,
+        stagger: 0.1
+      });
+    },
+    once: function once() {
+      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        delay: .2,
+        duration: .5,
+        translateY: 10,
+        opacity: 0,
+        stagger: 0.15
+      });
     }
   }]
 });
