@@ -4,8 +4,8 @@
     <h2 class="text-4xl opacity-25 mb-24">See for yourself</h2>
 
     <div class="relative">
-      <div class="assignments-image-background rounded-full absolute right-0">
-        <img class="assignments-image absolute" :src="cover" alt="">
+      <div class="assignments-image-background rounded-full absolute right-0 flex items-center">
+        <img class="assignments-image absolute z-10" :src="cover" alt="">
       </div>
     </div>
   </div>
@@ -27,8 +27,6 @@
       </li>
     {{ /collection:assignments }}
   </ul>
-
-  <!-- <div id="hits"></div> -->
 </div>
 
 <div class="mx-auto px-4 text-center leading-tight py-40">
