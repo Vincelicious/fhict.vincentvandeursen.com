@@ -599,6 +599,10 @@ video {
   height: auto;
 }
 
+.search {
+  background-color: #f6f6f6;
+}
+
 .assignments-grid {
   display: grid;
   grid-template-columns: 300px 1fr;

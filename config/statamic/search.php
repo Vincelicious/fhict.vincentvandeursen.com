@@ -39,7 +39,7 @@ return [
         'assignments' => [
             'driver' => 'algolia',
             'searchables' => 'collection:assignments',
-            'fields' => ['title', 'class', 'date', 'cover', 'color']
+            'fields' => ['id', 'title', 'class', 'date', 'cover', 'color', 'url']
         ],
 
     ],
