@@ -6,6 +6,9 @@ import "alpinejs";
 // ----------------------------------------
 barba.init({
   transitions: [{
+    once() {
+      gsap.from(".assignment-item", { delay: .2, translateY: 10, opacity: 0, stagger: 0.1 })
+    },
     leave() {
       let done = this.async();
 
@@ -16,13 +19,8 @@ barba.init({
     },
     after() {
       let done = this.async();
+      gsap.from(".assignment-item", { delay: .4, translateY: 10, opacity: 0, stagger: 0.1 })
       gsap.to(".transition-background", { y: '-100%', duration: .2, delay: .3, ease: "circ", onComplete: () => done() })
-    },
-    enter() {
-      gsap.from(".assignment-item", { delay: .2, duration: .3, translateY: 10, opacity: 0, stagger: 0.1 })
-    },
-    once() {
-      gsap.from(".assignment-item", { delay: .2, duration: .3, translateY: 10, opacity: 0, stagger: 0.1 })
     }
   }]
 });

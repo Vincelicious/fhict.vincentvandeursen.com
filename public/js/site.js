@@ -7244,6 +7244,14 @@ __webpack_require__.r(__webpack_exports__);
 
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   transitions: [{
+    once: function once() {
+      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        delay: .2,
+        translateY: 10,
+        opacity: 0,
+        stagger: 0.1
+      });
+    },
     leave: function leave() {
       var done = this.async();
       gsap__WEBPACK_IMPORTED_MODULE_1__["default"].fromTo(".transition-background", {
@@ -7259,6 +7267,12 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     },
     after: function after() {
       var done = this.async();
+      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        delay: .4,
+        translateY: 10,
+        opacity: 0,
+        stagger: 0.1
+      });
       gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(".transition-background", {
         y: '-100%',
         duration: .2,
@@ -7267,24 +7281,6 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
         onComplete: function onComplete() {
           return done();
         }
-      });
-    },
-    enter: function enter() {
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
-        delay: .2,
-        duration: .3,
-        translateY: 10,
-        opacity: 0,
-        stagger: 0.1
-      });
-    },
-    once: function once() {
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
-        delay: .2,
-        duration: .3,
-        translateY: 10,
-        opacity: 0,
-        stagger: 0.1
       });
     }
   }]
