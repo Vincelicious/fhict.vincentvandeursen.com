@@ -7243,9 +7243,6 @@ __webpack_require__.r(__webpack_exports__);
 // ----------------------------------------
 
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
-  // debug: true,
-  cacheIgnore: true,
-  prefetchIgnore: true,
   transitions: [{
     leave: function leave() {
       var done = this.async();
@@ -7274,8 +7271,8 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     },
     enter: function enter() {
       gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
-        delay: .3,
-        duration: .5,
+        delay: .2,
+        duration: .3,
         translateY: 10,
         opacity: 0,
         stagger: 0.1
@@ -7284,10 +7281,10 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     once: function once() {
       gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
         delay: .2,
-        duration: .5,
+        duration: .3,
         translateY: 10,
         opacity: 0,
-        stagger: 0.15
+        stagger: 0.1
       });
     }
   }]

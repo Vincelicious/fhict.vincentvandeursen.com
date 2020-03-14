@@ -13,10 +13,12 @@
   {{ entries paginate="99" sort="date:desc" }}
     <ul class="assignments-list">
       {{ results }}
-        <li class="flex items-baseline border-b px-8 pb-2 mb-10">
+        <li class="assignment-item flex items-baseline border-b px-8 pb-2 mb-10">
           <div class="w-64">
             <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
-            <span class="opacity-25">{{ class }}{{ abbreviation }}{{ /class }}</span>
+            {{ class }}
+              <span class="opacity-25">{{ abbreviation }}</span>
+            {{ /class }}
           </div>
           <a href="{{ url }}">
             <h4 class="assignment-title text-3xl relative" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
