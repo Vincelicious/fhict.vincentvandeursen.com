@@ -99,6 +99,19 @@
 
 /***/ }),
 
+/***/ "./node_modules/@barba/prefetch/dist/barba-prefetch.umd.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@barba/prefetch/dist/barba-prefetch.umd.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,i){ true?module.exports=i():undefined}(this,function(){var t="2.1.10",i=window.requestIdleCallback||function(t){var i=Date.now();return setTimeout(function(){t({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-i))}})},1)};return new(function(){function n(){this.name="@barba/prefetch",this.version=t,this.toPrefetch=new Set}var e=n.prototype;return e.install=function(t,i){var n=void 0===i?{}:i,e=n.root,o=void 0===e?document.body:e,r=n.timeout,s=void 0===r?2e3:r;this.logger=new t.Logger(this.name),this.logger.info(this.version),this.barba=t,this.root=o,this.timeout=s},e.init=function(){var t=this;this.barba.prefetchIgnore?this.logger.warn("barba.prefetchIgnore is enabled"):this.barba.cacheIgnore?this.logger.warn("barba.cacheIgnore is enabled"):(this.observer=new IntersectionObserver(function(i){i.forEach(function(i){if(i.isIntersecting){var n=i.target,e=t.barba.dom.getHref(n);t.toPrefetch.has(e)&&(t.observer.unobserve(n),t.barba.cache.has(e)?t.barba.cache.update(e,{action:"prefetch"}):t.barba.cache.set(e,t.barba.request(e,t.barba.timeout,t.barba.onRequestError.bind(t.barba,"barba")).catch(function(i){t.logger.error(i)}),"prefetch"))}})}),this.observe(),this.barba.hooks.after(this.observe,this))},e.observe=function(){var t=this;i(function(){t.root.querySelectorAll("a").forEach(function(i){var n=i,e=t.barba.dom.getHref(n);t.barba.cache.has(e)||t.barba.prevent.checkHref(e)||t.barba.prevent.checkLink(n,{},e)||(t.observer.observe(i),t.toPrefetch.add(e))})},{timeout:this.timeout})},n}())});
+//# sourceMappingURL=barba-prefetch.umd.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -7608,15 +7621,18 @@ process.umask = function() { return 0; };
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @barba/core */ "./node_modules/@barba/core/dist/barba.umd.js");
 /* harmony import */ var _barba_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_barba_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _barba_prefetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @barba/prefetch */ "./node_modules/@barba/prefetch/dist/barba-prefetch.umd.js");
+/* harmony import */ var _barba_prefetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_barba_prefetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 
 var fetchAssignmentCover = function fetchAssignmentCover(id) {
-  return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/collections/assignments/entries?filter[id:is]=".concat(id)).then(function (response) {
+  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/collections/assignments/entries?filter[id:is]=".concat(id)).then(function (response) {
     return response.data.data[0].cover[0];
   })["catch"](function (error) {
     return error.message;
@@ -7625,11 +7641,12 @@ var fetchAssignmentCover = function fetchAssignmentCover(id) {
 // ----------------------------------------
 
 
+_barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.use(_barba_prefetch__WEBPACK_IMPORTED_MODULE_1___default.a);
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   transitions: [{
     once: function once() {
       if (document.querySelector(".assignment-item")) {
-        gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["default"].from(".assignment-item", {
           delay: .2,
           translateY: 10,
           opacity: 0,
@@ -7639,7 +7656,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     },
     leave: function leave() {
       var done = this.async();
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].fromTo(".transition-background", {
+      gsap__WEBPACK_IMPORTED_MODULE_2__["default"].fromTo(".transition-background", {
         y: '100%'
       }, {
         y: '0%',
@@ -7654,7 +7671,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       var done = this.async();
 
       if (document.querySelector(".assignment-item")) {
-        gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+        gsap__WEBPACK_IMPORTED_MODULE_2__["default"].from(".assignment-item", {
           delay: .5,
           translateY: 10,
           opacity: 0,
@@ -7662,7 +7679,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
         });
       }
 
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(".transition-background", {
+      gsap__WEBPACK_IMPORTED_MODULE_2__["default"].to(".transition-background", {
         y: '-100%',
         duration: .2,
         delay: .3,

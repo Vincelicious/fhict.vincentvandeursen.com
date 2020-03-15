@@ -1,4 +1,5 @@
 import barba from "@barba/core";
+import barbaPrefetch from '@barba/prefetch';
 import gsap from "gsap";
 import axios from "axios";
 
@@ -14,6 +15,8 @@ const fetchAssignmentCover = id => {
 
 // Page transition with Barba.js and GSAP
 // ----------------------------------------
+barba.use(barbaPrefetch);
+
 barba.init({
   transitions: [{
     once() {
