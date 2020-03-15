@@ -48,6 +48,7 @@ barba.init({
       if (document.querySelector(".assignment-item")) {
         gsap.from(".assignment-item", { delay: .5, translateY: 10, opacity: 0, stagger: 0.1 })
       }
+      window.scrollTo(0, 0);
       gsap.to(".transition-background", { y: '-100%', duration: .2, delay: .3, ease: "circ", onComplete: () => done() })
     }
   }]

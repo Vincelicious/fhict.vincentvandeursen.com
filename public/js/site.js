@@ -7699,6 +7699,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
         });
       }
 
+      window.scrollTo(0, 0);
       gsap__WEBPACK_IMPORTED_MODULE_2__["default"].to(".transition-background", {
         y: '-100%',
         duration: .2,
