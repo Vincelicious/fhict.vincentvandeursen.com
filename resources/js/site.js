@@ -55,29 +55,33 @@ barba.init({
 });
 
 barba.hooks.afterOnce(data => {
-  document.querySelectorAll(".assignment-title").forEach(assignment => {
-    assignment.addEventListener("mouseenter", () => {
-      fetchAssignmentCover(assignment.dataset.id)
-        .then(cover => {
-          animateAssignmentCover(cover)
-        })
-        .catch(error => {
-          console.log(error.message)
-        })
+  if (document.querySelector(".assignments-image")) {
+    document.querySelectorAll(".assignment-title").forEach(assignment => {
+      assignment.addEventListener("mouseenter", () => {
+        fetchAssignmentCover(assignment.dataset.id)
+          .then(cover => {
+            animateAssignmentCover(cover)
+          })
+          .catch(error => {
+            console.log(error.message)
+          })
+      })
     })
-  })
+  }
 });
 
 barba.hooks.after(data => {
-  document.querySelectorAll(".assignment-title").forEach(assignment => {
-    assignment.addEventListener("mouseenter", () => {
-      fetchAssignmentCover(assignment.dataset.id)
-        .then(cover => {
-          animateAssignmentCover(cover)
-        })
-        .catch(error => {
-          console.log(error.message)
-        })
+  if (document.querySelector(".assignments-image")) {
+    document.querySelectorAll(".assignment-title").forEach(assignment => {
+      assignment.addEventListener("mouseenter", () => {
+        fetchAssignmentCover(assignment.dataset.id)
+          .then(cover => {
+            animateAssignmentCover(cover)
+          })
+          .catch(error => {
+            console.log(error.message)
+          })
+      })
     })
-  })
+  }
 });

@@ -7713,26 +7713,30 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   }]
 });
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.afterOnce(function (data) {
-  document.querySelectorAll(".assignment-title").forEach(function (assignment) {
-    assignment.addEventListener("mouseenter", function () {
-      fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        animateAssignmentCover(cover);
-      })["catch"](function (error) {
-        console.log(error.message);
+  if (document.querySelector(".assignments-image")) {
+    document.querySelectorAll(".assignment-title").forEach(function (assignment) {
+      assignment.addEventListener("mouseenter", function () {
+        fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
+          animateAssignmentCover(cover);
+        })["catch"](function (error) {
+          console.log(error.message);
+        });
       });
     });
-  });
+  }
 });
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.after(function (data) {
-  document.querySelectorAll(".assignment-title").forEach(function (assignment) {
-    assignment.addEventListener("mouseenter", function () {
-      fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        animateAssignmentCover(cover);
-      })["catch"](function (error) {
-        console.log(error.message);
+  if (document.querySelector(".assignments-image")) {
+    document.querySelectorAll(".assignment-title").forEach(function (assignment) {
+      assignment.addEventListener("mouseenter", function () {
+        fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
+          animateAssignmentCover(cover);
+        })["catch"](function (error) {
+          console.log(error.message);
+        });
       });
     });
-  });
+  }
 });
 
 /***/ }),
