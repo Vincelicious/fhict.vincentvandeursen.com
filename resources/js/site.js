@@ -13,7 +13,9 @@ function addVueScriptTag(element) {
 barba.init({
   transitions: [{
     once() {
-      gsap.from(".assignment-item", { delay: .2, translateY: 10, opacity: 0, stagger: 0.1 })
+      if (document.querySelector(".assignment-item")) {
+        gsap.from(".assignment-item", { delay: .2, translateY: 10, opacity: 0, stagger: 0.1 })
+      }
     },
     leave() {
       let done = this.async();
@@ -25,7 +27,10 @@ barba.init({
     },
     after() {
       let done = this.async();
-      gsap.from(".assignment-item", { delay: .5, translateY: 10, opacity: 0, stagger: 0.1 })
+
+      if (document.querySelector(".assignment-item")) {
+        gsap.from(".assignment-item", { delay: .5, translateY: 10, opacity: 0, stagger: 0.1 })
+      }
       gsap.to(".transition-background", { y: '-100%', duration: .2, delay: .3, ease: "circ", onComplete: () => done() })
     }
   }],
@@ -44,3 +49,11 @@ barba.init({
     }
   ]
 });
+
+// barba.hooks.beforeOnce(({ next }) => {
+//   console.log(data)
+// });
+
+// barba.hooks.beforeEnter(({ next }) => {
+//   console.log(next)
+// });

@@ -18103,12 +18103,14 @@ function addVueScriptTag(element) {
 _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   transitions: [{
     once: function once() {
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
-        delay: .2,
-        translateY: 10,
-        opacity: 0,
-        stagger: 0.1
-      });
+      if (document.querySelector(".assignment-item")) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+          delay: .2,
+          translateY: 10,
+          opacity: 0,
+          stagger: 0.1
+        });
+      }
     },
     leave: function leave() {
       var done = this.async();
@@ -18125,12 +18127,16 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     },
     after: function after() {
       var done = this.async();
-      gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
-        delay: .5,
-        translateY: 10,
-        opacity: 0,
-        stagger: 0.1
-      });
+
+      if (document.querySelector(".assignment-item")) {
+        gsap__WEBPACK_IMPORTED_MODULE_1__["default"].from(".assignment-item", {
+          delay: .5,
+          translateY: 10,
+          opacity: 0,
+          stagger: 0.1
+        });
+      }
+
       gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(".transition-background", {
         y: '-100%',
         duration: .2,
@@ -18155,7 +18161,12 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       });
     }
   }]
-});
+}); // barba.hooks.beforeOnce(({ next }) => {
+//   console.log(data)
+// });
+// barba.hooks.beforeEnter(({ next }) => {
+//   console.log(next)
+// });
 
 /***/ }),
 
