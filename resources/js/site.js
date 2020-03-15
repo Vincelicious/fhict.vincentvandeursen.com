@@ -23,6 +23,20 @@ function animateAssignmentCover(newCover) {
   tl.to(".assignments-image", {x: 0, opacity: 1, duration: .2})
 }
 
+function addAssignmentCoverAnimation() {
+  document.querySelectorAll(".assignment-title").forEach(assignment => {
+    assignment.addEventListener("mouseenter", () => {
+      fetchAssignmentCover(assignment.dataset.id)
+        .then(cover => {
+          animateAssignmentCover(cover)
+        })
+        .catch(error => {
+          console.log(error.message)
+        })
+    })
+  })
+}
+
 // Page transition with Barba.js and GSAP
 // ----------------------------------------
 barba.use(barbaPrefetch);
@@ -56,32 +70,12 @@ barba.init({
 
 barba.hooks.afterOnce(data => {
   if (document.querySelector(".assignments-image")) {
-    document.querySelectorAll(".assignment-title").forEach(assignment => {
-      assignment.addEventListener("mouseenter", () => {
-        fetchAssignmentCover(assignment.dataset.id)
-          .then(cover => {
-            animateAssignmentCover(cover)
-          })
-          .catch(error => {
-            console.log(error.message)
-          })
-      })
-    })
+    addAssignmentCoverAnimation();
   }
 });
 
 barba.hooks.after(data => {
   if (document.querySelector(".assignments-image")) {
-    document.querySelectorAll(".assignment-title").forEach(assignment => {
-      assignment.addEventListener("mouseenter", () => {
-        fetchAssignmentCover(assignment.dataset.id)
-          .then(cover => {
-            animateAssignmentCover(cover)
-          })
-          .catch(error => {
-            console.log(error.message)
-          })
-      })
-    })
+    addAssignmentCoverAnimation();
   }
 });
