@@ -7629,7 +7629,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // Changing and animating cover image
+// ----------------------------------------
 
 var fetchAssignmentCover = function fetchAssignmentCover(id) {
   return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/collections/assignments/entries?filter[id:is]=".concat(id)).then(function (response) {

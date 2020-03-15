@@ -3,6 +3,9 @@ import barbaPrefetch from '@barba/prefetch';
 import gsap from "gsap";
 import axios from "axios";
 
+// Changing and animating cover image
+// ----------------------------------------
+
 const fetchAssignmentCover = id => {
   return axios.get(`/api/collections/assignments/entries?filter[id:is]=${id}`)
   .then(response => {
