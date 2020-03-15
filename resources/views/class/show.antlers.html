@@ -1,11 +1,11 @@
-<div id="assignments" class="assignments-grid container mx-auto px-4 pt-4" x-data="{ cover: '' }">
+<div class="assignments-grid container mx-auto px-4 pt-4">
   <div class="leading-tight">
     <h1 class="text-4xl">What am I doing?</h1>
     <h2 class="text-4xl opacity-25 mb-24">{{ title }}</h2>
 
     <div class="relative">
       <div class="assignments-image-background rounded-full absolute right-0">
-        <img class="assignments-image absolute" :src="cover" alt="">
+        <img class="assignments-image absolute" alt="">
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
             {{ /class }}
           </div>
           <a href="{{ url }}">
-            <h4 class="assignment-title text-3xl relative" @mouseover='cover = {{ cover }} {{ url | to_json }} {{ /cover }}'>
+            <h4 class="assignment-title text-3xl relative" data-id="{{ id }}">
               {{ title }}
             </h4>
           </a>

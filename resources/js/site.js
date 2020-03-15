@@ -1,11 +1,15 @@
 import barba from "@barba/core";
 import gsap from "gsap";
-import Vue from "vue";
+import axios from "axios";
 
-function addVueScriptTag(element) {
-  let script = document.createElement("script");
-  script.src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js";
-  element.container.appendChild(script);
+const fetchAssignmentCover = id => {
+  return axios.get(`/api/collections/assignments/entries?filter[id:is]=${id}`)
+  .then(response => {
+    return response.data.data[0].cover[0]
+  })
+  .catch(error => {
+    return error.message
+  })
 }
 
 // Page transition with Barba.js and GSAP
@@ -33,27 +37,29 @@ barba.init({
       }
       gsap.to(".transition-background", { y: '-100%', duration: .2, delay: .3, ease: "circ", onComplete: () => done() })
     }
-  }],
-  views: [
-    {
-      namespace: "assignments",
-      beforeEnter({ next }) {
-        addVueScriptTag(next)
-        let site = new Vue({
-          el: "#assignments",
-          data: {
-            cover: ""
-          }
-        })
-      }
-    }
-  ]
+  }]
 });
 
-// barba.hooks.beforeOnce(({ next }) => {
-//   console.log(data)
-// });
+barba.hooks.afterOnce(data => {
+  document.querySelectorAll(".assignment-title").forEach(assignment => {
+    assignment.addEventListener("mouseenter", () => {
+      fetchAssignmentCover(assignment.dataset.id).then(cover => {
+        document.querySelector(".assignments-image").src = cover.url
+      })
+    })
+  })
+});
 
-// barba.hooks.beforeEnter(({ next }) => {
-//   console.log(next)
-// });
+barba.hooks.after(data => {
+  document.querySelectorAll(".assignment-title").forEach(assignment => {
+    assignment.addEventListener("mouseenter", () => {
+      fetchAssignmentCover(assignment.dataset.id)
+        .then(cover => {
+        document.querySelector(".assignments-image").src = cover.url
+        })
+        .catch(error => {
+          console.log(error.message)
+        })
+    })
+  })
+});
