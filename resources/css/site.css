@@ -1,110 +1,184 @@
-@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
-body {
-    @apply text-gray-800;
-    font-feature-settings: "frac" 1;
+.search {
+  background-color: #f6f6f6;
 }
 
-h1 {
-    @apply text-4xl font-bold leading-none mb-16;
+.assignments-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-column-gap: 160px;
 }
 
-.content {
-    > h2 {
-        @apply text-2xl font-bold leading-none mt-12 py-6;
-    }
+.assignments-list {
+  min-height: 680px;
+}
 
-    > h3 {
-        @apply text-xl font-semibold leading-none py-6;
-    }
+.assignments-image-container {
+  position: sticky;
+  top: 160px;
+  height: 480px;
+  margin-bottom: 80px;
+}
 
-    > h4 {
-        @apply font-bold uppercase tracking-widest leading-none py-6;
-    }
+.assignments-image-background {
+  width: 480px;
+  height: 480px;
+  background-color: #f6f6f6;
+}
 
-    > p {
-        @apply mb-6 text-lg;
-    }
+.assignments-image {
+  top: 80px;
+  right: -120px;
+}
 
-    > p:first-of-type {
-        @apply text-2xl;
-    }
+.fade-enter-active {
+  transition: all .2s ease;
+}
 
-    > blockquote {
-        @apply text-center font-black italic px-4 mb-12 pt-6 text-3xl leading-tight;
-    }
+.fade-leave-active {
+ transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
 
-    > blockquote > p {
-        @apply text-3xl leading-tight;
-    }
+.fade-enter, .fade-leave-to {
+  transform: translateX(-40px);
+  opacity: 0;
+}
 
-    img {
-        @apply my-12;
-    }
+.assignment-title::before {
+  content: '';
+  height: 0;
+  width: 100%;
+  display: block;
+  background-color: #f6f6f6;
+  position: absolute;
+  bottom: 2px;
+  z-index: -1;
+  left: -16px;
+  transition: all .3s;
+}
 
-    a {
-        @apply text-teal font-medium underline;
-        &:hover {
-            @apply text-black;
-        }
-    }
+.assignment-title:hover::before {
+  height: 16px;
+}
 
-    ul:not(.list-none) {
-        @apply pl-0 list-disc ml-10 mb-6 text-lg;
-        li {
-            @apply mb-1;
-        }
-    }
+.button {
+  position: relative;
+  font-weight: 400;
 
-    ol {
-        @apply pl-0 list-decimal ml-10 mb-6 text-lg;
-        > li {
-            @apply mb-1;
-        }
-    }
-
-    > p code,
-    > ul li *:not(pre) code,
-    > ul li > code,
-    > ol li *:not(pre) code,
-    > ol li > code {
-        @apply inline-block bg-gray-800 text-white text-sm p-1 leading-none whitespace-no-wrap font-mono align-baseline;
-    }
-
-    > pre, pre&, > ul li pre, > ol li pre {
-        @apply flex p-0 bg-gray-800 text-gray-300 text-sm leading-loose mb-6;
-    }
-
-    > pre code, pre code&, > ul li pre code, > ol li pre code {
-        @apply p-4;
-    }
-
-    > table {
-        @apply w-full text-left border border-gray-800 border-collapse mb-6 text-sm;
-        th {
-            @apply font-bold text-gray-800 bg-gray-200 p-2 uppercase tracking-widest border-t-4 border-b border-gray-800;
-        }
-
-        td {
-            @apply p-3 border-b border-gray-800 text-sm;
-        }
-
-        p {
-            @apply leading-normal;
-        }
+  & .icon {
+    display: inline;
+    margin-left: 15px;
   }
 }
 
+.button::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-color: #f6f6f6;
+  border-radius: 999px;
+  position: absolute;
+  left: -20px;
+  top: -9px;
+  z-index: -5;
+  transition: all .3s;
+}
 
-/* Responsive Wangjangling */
-@screen lg {
-    h1 {
-        @apply text-6xl;
-    }
+.button:hover::before {
+  width: calc(100% + 40px);
+}
 
-    .content {
-        > h2 {
-            @apply text-3xl mt-16 py-6;
-        }
-    }
+.content {
+  & > h2 {
+    @apply py-4 text-4xl;
+  }
+
+  & > h3 {
+    @apply py-2 text-2xl;
+  }
+
+  & > p {
+    @apply mb-6 text-lg leading-relaxed;
+  }
+
+  & > blockquote {
+    @apply italic;
+  }
+
+  & > blockquote > p {
+    @apply mb-6 text-lg leading-relaxed;
+  }
+
+  & a {
+    @apply underline;
+  }
+
+  & strong {
+    @apply font-normal;
+  }
+
+  & > ul {
+    @apply pl-0 list-disc ml-10 mb-6 text-lg;
+      & > li {
+        @apply mb-1;
+      }
+  }
+
+  & > ol {
+    @apply pl-0 list-decimal ml-10 mb-6 text-lg;
+      & > li {
+          @apply mb-1;
+      }
+  }
+
+  & > p code,
+  & > ul li *:not(pre) code,
+  & > ul li > code,
+  & > ol li *:not(pre) code,
+  & > ol li > code {
+      @apply inline-block bg-gray-200 text-gray-800 text-sm p-1 leading-none whitespace-no-wrap font-mono align-baseline;
+  }
+
+  & > pre {
+    @apply w-full;
+  }
+
+  & > pre code {
+      @apply flex p-4 bg-gray-200 text-gray-800 text-sm leading-loose mb-6;
+  }
+}
+
+.dot-after::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #000;
+  margin: 0 8px 3px;
+}
+
+.transition {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.transition-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#F2F2F2;
+  transform: translateY(100%);
 }

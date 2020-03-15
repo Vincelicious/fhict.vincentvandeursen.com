@@ -1,0 +1,161 @@
+title: Assignment
+sections:
+  content:
+    display: Content
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          localizable: false
+          listable: hidden
+          display: Title
+      -
+        handle: body
+        field:
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - code
+            - codeblock
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: true
+          fullscreen: true
+          allow_source: true
+          type: bard
+          localizable: false
+          listable: hidden
+          display: Body
+          sets:
+            image:
+              display: Image
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    restrict: false
+                    allow_uploads: true
+                    type: assets
+                    localizable: false
+                    listable: hidden
+                    display: Image
+                    container: assets
+                -
+                  handle: caption
+                  field:
+                    type: text
+                    localizable: false
+                    listable: hidden
+                    display: Caption
+                    width: 66
+                -
+                  handle: size
+                  field:
+                    options:
+                      small: Small
+                      large: Large
+                    inline: true
+                    type: radio
+                    localizable: false
+                    listable: hidden
+                    display: Size
+                    width: 33
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          generate: true
+          type: slug
+          localizable: false
+          listable: hidden
+          display: Slug
+      -
+        handle: date
+        field:
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+          mode: single
+          type: date
+          localizable: false
+          listable: hidden
+          display: Date
+      -
+        handle: class
+        field:
+          max_items: 1
+          mode: default
+          type: taxonomy
+          localizable: false
+          listable: hidden
+          display: Class
+      -
+        handle: related_assignments
+        field:
+          mode: default
+          collections:
+            - assignments
+          type: entries
+          localizable: false
+          listable: hidden
+          display: 'Related Assignments'
+  cover:
+    display: Cover
+    fields:
+      -
+        handle: cover
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          type: assets
+          localizable: false
+          listable: hidden
+          display: Cover
+          container: assets
+      -
+        handle: fit
+        field:
+          options:
+            cover: Cover
+            contain: Contain
+          inline: true
+          type: radio
+          localizable: false
+          listable: hidden
+          display: Fit
+          width: 33
+      -
+        handle: color
+        field:
+          theme: classic
+          color_modes:
+            - hex
+          default_color_mode: HEXA
+          type: color
+          localizable: false
+          listable: hidden
+          display: Color
+          width: 33
+          if:
+            fit: 'equals contain'

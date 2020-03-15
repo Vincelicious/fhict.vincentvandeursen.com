@@ -1,0 +1,15 @@
+title: Assignments
+route: 'assignments/{slug}'
+template: assignment
+blueprints:
+  - assignment
+mount: 12af4627-fe82-452c-b15b-2f57d680acfc
+taxonomies:
+  - class
+revisions: false
+date: true
+sort_dir: desc
+default_status: draft
+date_behavior:
+  past: public
+  future: private

@@ -4,15 +4,24 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }} — {{ settings:site_name }}</title>
+        <title>{{ title }} | {{ settings:site_name }}</title>
         <meta name="description" content="{{ excerpt ?? title }}">
         <meta name="theme-color" content="00908F">
         <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
-        <script src="{{ mix src='/js/site.js' }}"></script>
     </head>
-    <body class="bg-white font-sans leading-normal text-grey-800 px-4 sm:px-10" x-data="{ showMobileNav: false }">
-        {{ partial:nav }}
-        {{ template_content }}
+    <body class="bg-white font-sans font-light antialiased" data-barba="wrapper">
+        {{ partial:header }}
+
+        <main data-barba="container" data-barba-namespace="{{ excerpt ?? title | slugify }}">
+            {{ template_content }}
+        </main>
+
         {{ partial:footer }}
+
+        <div class="transition">
+            <div class="transition-background"></div>
+        </div>
+
+        <script src="{{ mix src='/js/site.js' }}"></script>
     </body>
 </html>
