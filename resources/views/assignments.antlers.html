@@ -1,11 +1,13 @@
-<div class="assignments-grid container mx-auto px-4 pt-4" x-data="{ cover: '' }">
+<div id="assignments" class="assignments-grid container mx-auto px-4 pt-4">
   <div class="leading-tight">
-    <h1 class="text-4xl">What am I doing?</h1>
+    <h1 class="text-4xl" id="test">What am I doing?</h1>
     <h2 class="text-4xl opacity-25 mb-24">See for yourself</h2>
 
     <div class="relative">
       <div class="assignments-image-background rounded-full absolute right-0 flex items-center">
-        <img class="assignments-image absolute z-10" :src="cover" alt="">
+        <transition name="fade" mode="out-in">
+          <img class="assignments-image absolute z-10" :key="cover" :src="cover" alt="">
+        </transition>
       </div>
     </div>
   </div>
