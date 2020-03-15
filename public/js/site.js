@@ -7637,7 +7637,27 @@ var fetchAssignmentCover = function fetchAssignmentCover(id) {
   })["catch"](function (error) {
     return error.message;
   });
-}; // Page transition with Barba.js and GSAP
+};
+
+function changeAssignmentCover(newCover) {
+  document.querySelector(".assignments-image").src = newCover.url;
+}
+
+function animateAssignmentCover(newCover) {
+  var tl = gsap__WEBPACK_IMPORTED_MODULE_2__["default"].timeline();
+  tl.to(".assignments-image", {
+    x: "-40",
+    opacity: 0,
+    duration: .2,
+    onComplete: changeAssignmentCover,
+    onCompleteParams: [newCover]
+  });
+  tl.to(".assignments-image", {
+    x: 0,
+    opacity: 1,
+    duration: .2
+  });
+} // Page transition with Barba.js and GSAP
 // ----------------------------------------
 
 
@@ -7695,7 +7715,9 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.afterOnce(function (dat
   document.querySelectorAll(".assignment-title").forEach(function (assignment) {
     assignment.addEventListener("mouseenter", function () {
       fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        document.querySelector(".assignments-image").src = cover.url;
+        animateAssignmentCover(cover);
+      })["catch"](function (error) {
+        console.log(error.message);
       });
     });
   });
@@ -7704,7 +7726,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.after(function (data) {
   document.querySelectorAll(".assignment-title").forEach(function (assignment) {
     assignment.addEventListener("mouseenter", function () {
       fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        document.querySelector(".assignments-image").src = cover.url;
+        animateAssignmentCover(cover);
       })["catch"](function (error) {
         console.log(error.message);
       });

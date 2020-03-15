@@ -13,6 +13,16 @@ const fetchAssignmentCover = id => {
   })
 }
 
+function changeAssignmentCover(newCover) {
+  document.querySelector(".assignments-image").src = newCover.url
+}
+
+function animateAssignmentCover(newCover) {
+  let tl = gsap.timeline();
+  tl.to(".assignments-image", {x: "-40", opacity: 0, duration: .2, onComplete: changeAssignmentCover, onCompleteParams: [newCover]});
+  tl.to(".assignments-image", {x: 0, opacity: 1, duration: .2})
+}
+
 // Page transition with Barba.js and GSAP
 // ----------------------------------------
 barba.use(barbaPrefetch);
@@ -46,9 +56,13 @@ barba.init({
 barba.hooks.afterOnce(data => {
   document.querySelectorAll(".assignment-title").forEach(assignment => {
     assignment.addEventListener("mouseenter", () => {
-      fetchAssignmentCover(assignment.dataset.id).then(cover => {
-        document.querySelector(".assignments-image").src = cover.url
-      })
+      fetchAssignmentCover(assignment.dataset.id)
+        .then(cover => {
+          animateAssignmentCover(cover)
+        })
+        .catch(error => {
+          console.log(error.message)
+        })
     })
   })
 });
@@ -58,7 +72,7 @@ barba.hooks.after(data => {
     assignment.addEventListener("mouseenter", () => {
       fetchAssignmentCover(assignment.dataset.id)
         .then(cover => {
-        document.querySelector(".assignments-image").src = cover.url
+          animateAssignmentCover(cover)
         })
         .catch(error => {
           console.log(error.message)
