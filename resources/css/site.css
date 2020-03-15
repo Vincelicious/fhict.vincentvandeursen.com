@@ -14,6 +14,13 @@
   min-height: 680px;
 }
 
+.assignments-image-container {
+  position: sticky;
+  top: 160px;
+  height: 480px;
+  margin-bottom: 80px;
+}
+
 .assignments-image-background {
   width: 480px;
   height: 480px;
