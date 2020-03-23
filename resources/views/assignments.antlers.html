@@ -12,8 +12,8 @@
 
   <ul>
     {{ collection:assignments }}
-      <li class="assignment-item flex items-baseline border-b px-8 pb-2 mb-10">
-        <div class="w-64">
+      <li class="assignment-item flex items-baseline border-b px-4 xl:px-8 pb-2 mb-10">
+        <div class="min-w-56 xl:w-64">
           <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
           {{ class }}
             <a  href="{{ url }}" class="opacity-25">{{ abbreviation }}</a>
@@ -29,7 +29,7 @@
   </ul>
 </div>
 
-<div class="mx-auto px-4 text-center leading-tight py-40">
+<div class="mx-auto text-center leading-snug py-40">
   <h5 class="text-4xl">Thanks for scrolling,</h5>
   <h5 class="text-4xl opacity-25">that's all folks.</h5>
 </div>
