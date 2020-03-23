@@ -4,11 +4,16 @@
       <path fill-rule="evenodd" clip-rule="evenodd" d="M23.447 4.986c-.848-1.604-1.629-2.766-2.344-3.486-.718-.723-1.72-1.223-3.005-1.5H28L24.49 7.07l-1.043-2.083zM5.332 4.955C4.49 3.367 3.715 2.215 3.005 1.5 2.287.777 1.285.277 0 0H6.358a5.679 5.679 0 015.079 3.124l7.513 14.977-3.487 7.099L5.332 4.955z" fill="#000"/>
     </svg>
   </a>
-  <div>
+  <div class="flex items-center">
     <ul class="flex">
       {{ taxonomy:class }}
-        <li><a class="mx-4 font-normal opacity-25" href="{{ url }}">{{ abbreviation }}</a></li>
+        <li><a class="mx-4 font-normal" href="{{ url }}">{{ abbreviation }}</a></li>
       {{ /taxonomy:class }}
     </ul>
+    <!--
+    <svg class="ml-4" width="25" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#000" d="M0 0h25v2H0zM0 8h25v2H0z"/>
+    </svg>
+    -->
   </div>
 </header>

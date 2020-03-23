@@ -7649,22 +7649,34 @@ function animateAssignmentCover(newCover) {
   tl.to(".assignments-image", {
     x: "-40",
     opacity: 0,
-    duration: .2,
+    duration: 0.2,
     onComplete: changeAssignmentCover,
     onCompleteParams: [newCover]
   });
   tl.to(".assignments-image", {
     x: 0,
     opacity: 1,
-    duration: .2
+    duration: 0.2
   });
+}
+
+function isDuplicate(newCover) {
+  var oldCover = document.querySelector(".assignments-image");
+
+  if (oldCover.src.includes(newCover.url)) {
+    return true;
+  }
+
+  return false;
 }
 
 function addAssignmentCoverAnimation() {
   document.querySelectorAll(".assignment-title").forEach(function (assignment) {
     assignment.addEventListener("mouseenter", function () {
       fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        animateAssignmentCover(cover);
+        if (!isDuplicate(cover)) {
+          animateAssignmentCover(cover);
+        }
       })["catch"](function (error) {
         console.log(error.message);
       });
@@ -7680,7 +7692,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     once: function once() {
       if (document.querySelector(".assignment-item")) {
         gsap__WEBPACK_IMPORTED_MODULE_2__["default"].from(".assignment-item", {
-          delay: .2,
+          delay: 0.2,
           translateY: 10,
           opacity: 0,
           stagger: 0.1
@@ -7690,10 +7702,10 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     leave: function leave() {
       var done = this.async();
       gsap__WEBPACK_IMPORTED_MODULE_2__["default"].fromTo(".transition-background", {
-        y: '100%'
+        y: "100%"
       }, {
-        y: '0%',
-        duration: .2,
+        y: "0%",
+        duration: 0.2,
         ease: "circ",
         onComplete: function onComplete() {
           return done();
@@ -7705,7 +7717,7 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 
       if (document.querySelector(".assignment-item")) {
         gsap__WEBPACK_IMPORTED_MODULE_2__["default"].from(".assignment-item", {
-          delay: .5,
+          delay: 0.5,
           translateY: 10,
           opacity: 0,
           stagger: 0.1
@@ -7714,9 +7726,9 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 
       window.scrollTo(0, 0);
       gsap__WEBPACK_IMPORTED_MODULE_2__["default"].to(".transition-background", {
-        y: '-100%',
-        duration: .2,
-        delay: .3,
+        y: "-100%",
+        duration: 0.2,
+        delay: 0.3,
         ease: "circ",
         onComplete: function onComplete() {
           return done();

@@ -1,5 +1,5 @@
 import barba from "@barba/core";
-import barbaPrefetch from '@barba/prefetch';
+import barbaPrefetch from "@barba/prefetch";
 import gsap from "gsap";
 import axios from "axios";
 
@@ -7,23 +7,40 @@ import axios from "axios";
 // ----------------------------------------
 
 const fetchAssignmentCover = id => {
-  return axios.get(`/api/collections/assignments/entries?filter[id:is]=${id}`)
-  .then(response => {
-    return response.data.data[0].cover[0]
-  })
-  .catch(error => {
-    return error.message
-  })
-}
+  return axios
+    .get(`/api/collections/assignments/entries?filter[id:is]=${id}`)
+    .then(response => {
+      return response.data.data[0].cover[0];
+    })
+    .catch(error => {
+      return error.message;
+    });
+};
 
 function changeAssignmentCover(newCover) {
-  document.querySelector(".assignments-image").src = newCover.url
+  document.querySelector(".assignments-image").src = newCover.url;
 }
 
 function animateAssignmentCover(newCover) {
   let tl = gsap.timeline();
-  tl.to(".assignments-image", {x: "-40", opacity: 0, duration: .2, onComplete: changeAssignmentCover, onCompleteParams: [newCover]});
-  tl.to(".assignments-image", {x: 0, opacity: 1, duration: .2})
+  tl.to(".assignments-image", {
+    x: "-40",
+    opacity: 0,
+    duration: 0.2,
+    onComplete: changeAssignmentCover,
+    onCompleteParams: [newCover]
+  });
+  tl.to(".assignments-image", { x: 0, opacity: 1, duration: 0.2 });
+}
+
+function isDuplicate(newCover) {
+  let oldCover = document.querySelector(".assignments-image");
+
+  if (oldCover.src.includes(newCover.url)) {
+    return true;
+  }
+
+  return false;
 }
 
 function addAssignmentCoverAnimation() {
@@ -31,13 +48,15 @@ function addAssignmentCoverAnimation() {
     assignment.addEventListener("mouseenter", () => {
       fetchAssignmentCover(assignment.dataset.id)
         .then(cover => {
-          animateAssignmentCover(cover)
+          if (!isDuplicate(cover)) {
+            animateAssignmentCover(cover);
+          }
         })
         .catch(error => {
-          console.log(error.message)
-        })
-    })
-  })
+          console.log(error.message);
+        });
+    });
+  });
 }
 
 // Page transition with Barba.js and GSAP
@@ -45,30 +64,49 @@ function addAssignmentCoverAnimation() {
 barba.use(barbaPrefetch);
 
 barba.init({
-  transitions: [{
-    once() {
-      if (document.querySelector(".assignment-item")) {
-        gsap.from(".assignment-item", { delay: .2, translateY: 10, opacity: 0, stagger: 0.1 })
-      }
-    },
-    leave() {
-      let done = this.async();
+  transitions: [
+    {
+      once() {
+        if (document.querySelector(".assignment-item")) {
+          gsap.from(".assignment-item", {
+            delay: 0.2,
+            translateY: 10,
+            opacity: 0,
+            stagger: 0.1
+          });
+        }
+      },
+      leave() {
+        let done = this.async();
 
-      gsap.fromTo(".transition-background",
-        { y: '100%' },
-        { y: '0%', duration: .2, ease: "circ", onComplete: () => done() }
-      )
-    },
-    after() {
-      let done = this.async();
+        gsap.fromTo(
+          ".transition-background",
+          { y: "100%" },
+          { y: "0%", duration: 0.2, ease: "circ", onComplete: () => done() }
+        );
+      },
+      after() {
+        let done = this.async();
 
-      if (document.querySelector(".assignment-item")) {
-        gsap.from(".assignment-item", { delay: .5, translateY: 10, opacity: 0, stagger: 0.1 })
+        if (document.querySelector(".assignment-item")) {
+          gsap.from(".assignment-item", {
+            delay: 0.5,
+            translateY: 10,
+            opacity: 0,
+            stagger: 0.1
+          });
+        }
+        window.scrollTo(0, 0);
+        gsap.to(".transition-background", {
+          y: "-100%",
+          duration: 0.2,
+          delay: 0.3,
+          ease: "circ",
+          onComplete: () => done()
+        });
       }
-      window.scrollTo(0, 0);
-      gsap.to(".transition-background", { y: '-100%', duration: .2, delay: .3, ease: "circ", onComplete: () => done() })
     }
-  }]
+  ]
 });
 
 barba.hooks.afterOnce(data => {
