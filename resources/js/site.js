@@ -33,7 +33,7 @@ function animateAssignmentCover(newCover) {
   tl.to(".assignments-image", { x: 0, opacity: 1, duration: 0.2 });
 }
 
-function isDuplicate(newCover) {
+function isDuplicateCover(newCover) {
   let oldCover = document.querySelector(".assignments-image");
 
   if (oldCover.src.includes(newCover.url)) {
@@ -43,18 +43,34 @@ function isDuplicate(newCover) {
   return false;
 }
 
+let previousTitle = "";
+
 function addAssignmentCoverAnimation() {
   document.querySelectorAll(".assignment-title").forEach(assignment => {
     assignment.addEventListener("mouseenter", () => {
-      fetchAssignmentCover(assignment.dataset.id)
-        .then(cover => {
-          if (!isDuplicate(cover)) {
+      if (!previousTitle) {
+        previousTitle = assignment.innerText;
+
+        fetchAssignmentCover(assignment.dataset.id)
+          .then(cover => {
             animateAssignmentCover(cover);
-          }
-        })
-        .catch(error => {
-          console.log(error.message);
-        });
+          })
+          .catch(error => {
+            console.log(error.message);
+          });
+      } else if (previousTitle !== assignment.innerText) {
+        previousTitle = assignment.innerText;
+
+        fetchAssignmentCover(assignment.dataset.id)
+          .then(cover => {
+            if (!isDuplicateCover(cover)) {
+              animateAssignmentCover(cover);
+            }
+          })
+          .catch(error => {
+            console.log(error.message);
+          });
+      }
     });
   });
 }

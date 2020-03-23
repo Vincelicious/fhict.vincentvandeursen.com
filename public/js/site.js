@@ -7660,7 +7660,7 @@ function animateAssignmentCover(newCover) {
   });
 }
 
-function isDuplicate(newCover) {
+function isDuplicateCover(newCover) {
   var oldCover = document.querySelector(".assignments-image");
 
   if (oldCover.src.includes(newCover.url)) {
@@ -7670,16 +7670,28 @@ function isDuplicate(newCover) {
   return false;
 }
 
+var previousTitle = "";
+
 function addAssignmentCoverAnimation() {
   document.querySelectorAll(".assignment-title").forEach(function (assignment) {
     assignment.addEventListener("mouseenter", function () {
-      fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
-        if (!isDuplicate(cover)) {
+      if (!previousTitle) {
+        previousTitle = assignment.innerText;
+        fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
           animateAssignmentCover(cover);
-        }
-      })["catch"](function (error) {
-        console.log(error.message);
-      });
+        })["catch"](function (error) {
+          console.log(error.message);
+        });
+      } else if (previousTitle !== assignment.innerText) {
+        previousTitle = assignment.innerText;
+        fetchAssignmentCover(assignment.dataset.id).then(function (cover) {
+          if (!isDuplicateCover(cover)) {
+            animateAssignmentCover(cover);
+          }
+        })["catch"](function (error) {
+          console.log(error.message);
+        });
+      }
     });
   });
 } // Page transition with Barba.js and GSAP
