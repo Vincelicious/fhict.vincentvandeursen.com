@@ -1,0 +1,48 @@
+app_key: b77a4xEaSmfb6Smz9x6k27Elbd5xNKXp
+yaml_parser: symfony
+locales:
+  en:
+    full: en_US
+    name: English
+    url: 'http://fhict.vincentvandeursen.test/'
+timezone: UTC
+license_key: ''
+date_format: 'F jS, Y'
+default_extension: md
+send_powered_by_header: true
+ensure_unique_ids: true
+filesystems:
+  content:
+    driver: local
+    root: site/content
+  storage:
+    driver: local
+    root: site/storage
+  users:
+    driver: local
+    root: site/users
+  themes:
+    driver: local
+    root: site/themes
+    url: /site/themes
+redactor:
+  -
+    name: Standard
+    settings:
+      buttons:
+        - formatting
+        - bold
+        - italic
+        - link
+        - unorderedlist
+        - orderedlist
+        - html
+  -
+    name: Basic
+    settings:
+      buttons:
+        - bold
+        - italic
+csrf_exclude:
+  - '/!/Fetch/*'
+php_max_memory_limit: null

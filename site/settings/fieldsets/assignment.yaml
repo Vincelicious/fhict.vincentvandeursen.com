@@ -1,0 +1,92 @@
+sections:
+  main:
+    display: Content
+    fields:
+      title:
+        display: Title
+        type: text
+        localizable: true
+      body:
+        buttons:
+          - h2
+          - h3
+          - h4
+          - bold
+          - italic
+          - underline
+          - unorderedlist
+          - orderedlist
+          - removeformat
+          - quote
+          - anchor
+          - code
+        style: sans
+        spellcheck: true
+        allow_source: true
+        allow_internal_links: true
+        link_noopener: false
+        link_noreferrer: false
+        target_blank: false
+        semantic_elements: false
+        restrict_assets: false
+        type: bard
+        display: Body
+        sets:
+          image:
+            display: Image
+            fields:
+              image:
+                container: main
+                folder: /
+                restrict: false
+                max_files: 1
+                type: assets
+                display: Image
+              caption:
+                type: text
+                width: 66
+                display: Caption
+              size:
+                options:
+                  small: Small
+                  large: Large
+                inline: true
+                type: radio
+                width: 33
+                display: Size
+  sidebar:
+    display: Sidebar
+    fields:
+      slug:
+        display: Slug
+        type: text
+      date:
+        display: Date
+        type: date
+        allow_blank: false
+        allow_time: true
+        require_time: false
+        earliest_date: 'January 1, 1900'
+      cover:
+        container: main
+        folder: /
+        restrict: false
+        max_files: 1
+        type: assets
+        display: Cover
+      color:
+        type: text
+        display: Color
+      classes:
+        taxonomy: classes
+        mode: tags
+        type: taxonomy
+        display: Class
+      related_assignments:
+        collection:
+          - assignments
+        mode: tags
+        type: collection
+        display: 'Related Assignments'
+taxonomies: false
+title: Assignment

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Another awesome Statamic site">
+    <title>{{ title }} | Vincent van Deursen</title>
+    <link rel="stylesheet" href="{{ theme:css }}">
+</head>
+
+
+<body class="bg-white font-sans font-light antialiased" data-barba="wrapper">
+    {{ partial:header }}
+
+    <main data-barba="container" data-barba-namespace="{{ excerpt ?? title | slugify }}">
+        {{ template_content }}
+    </main>
+
+    {{ partial:footer }}
+
+    <div class="transition">
+        <div class="transition-background"></div>
+    </div>
+
+    <script src="{{ theme:js }}"></script>
+</body>
+
+</html>

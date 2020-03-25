@@ -1,7 +1,19 @@
 #!/usr/bin/env php
 <?php
 
-define('LARAVEL_START', microtime(true));
+// Temporarily force errors to show
+error_reporting(-1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+// Temporarily hardcode some variables from index.php
+$statamic = './statamic';
+$site_root = '/';
+$control_panel = 'cp';
+$locale = 'en';
+define('STATAMIC_ROOT', __DIR__);
+define('RELATIVE_APP', $statamic);
+define('APP', realpath(STATAMIC_ROOT . '/' . rtrim($statamic, '/')));
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +27,12 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/vendor/autoload.php';
-
-$app = require_once __DIR__.'/bootstrap/app.php';
+require APP.'/bootstrap/autoload.php';
+$app = require APP . '/bootstrap/start.php';
 
 /*
 |--------------------------------------------------------------------------
-| Run The Statamic Please Application
+| Run The Artisan Application
 |--------------------------------------------------------------------------
 |
 | When we run the console application, the current CLI command will be
@@ -30,7 +41,7 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 |
 */
 
-$kernel = $app->make(Statamic\Console\Please\Kernel::class);
+$kernel = $app->make('Illuminate\Contracts\Console\Kernel');
 
 $status = $kernel->handle(
     $input = new Symfony\Component\Console\Input\ArgvInput,
@@ -42,7 +53,7 @@ $status = $kernel->handle(
 | Shutdown The Application
 |--------------------------------------------------------------------------
 |
-| Once Artisan has finished running, we will fire off the shutdown events
+| Once Artisan has finished running. We will fire off the shutdown events
 | so that any final work may be done by the application before we shut
 | down the process. This is the last thing to happen to the request.
 |
