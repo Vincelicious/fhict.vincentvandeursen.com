@@ -1,0 +1,5 @@
+collections:
+  assignments: '/assignments/{slug}'
+taxonomies:
+  classes: '/assignments/classes/{slug}'
+routes: {  }

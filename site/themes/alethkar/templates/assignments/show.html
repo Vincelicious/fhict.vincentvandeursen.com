@@ -1,0 +1,81 @@
+<div class="container mx-auto px-4 pt-24 pb-40 leading-snug">
+  <h1 class="text-5xl">{{ title }}</h1>
+  {{ relate:classes }}
+    <h3 class="text-5xl opacity-25">{{ title }}</h3>
+  {{ /relate:classes }}
+</div>
+
+<div class="px-4 py-20 flex justify-center" style="background-color: {{ color }}">
+  <img  class="max-w-3xl" src="{{ cover }}" alt="{{ alt }}">
+</div>
+
+<div class="container mx-auto px-4 mt-24 mb-32 relative flex flex-col items-center">
+  <div class="opacity-50 text-lg absolute left-0 top-0 ml-4">
+    <span class="dot-after">{{ date }}</span>
+    {{ relate:classes }}
+      <a  href="{{ url }}">{{ abbreviation }}</a>
+    {{ /relate:classes }}
+  </div>
+
+  {{ body }}
+
+    {{ if type=="text" }}
+
+      <div class="content max-w-2xl">
+        {{ text }}
+      </div>
+
+    {{ elseif type=="image" }}
+
+      {{ if size=="small" }}
+
+        <figure class="container mx-auto text-center max-w-2xl">
+          <img class="pt-8 pb-4 w-full" src="{{ image }}" alt="{{ alt }}">
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+      {{ elseif size=="large" }}
+
+        <figure class="container mx-auto text-center">
+          <img class="pt-8 pb-4 w-full" src="{{ image }}" alt="{{ alt }}">
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+      {{ /if }}
+
+    {{ /if }}
+
+  {{ /body }}
+</div>
+
+<div class="container mx-auto mb-32 px-4">
+  <hr class="mb-32">
+  <div class="assignments-grid">
+    <div class="leading-snug">
+      <h4 class="text-4xl">Still not convinced?</h4>
+      <h4 class="text-4xl opacity-25 pb-16">Browse some more</h4>
+      <a href="/" class="button">
+        All assignments
+        <svg class="icon" width="6" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9l4-4-4-4" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <ul>
+      {{ relate:related_assignments }}
+        <li class="flex items-baseline border-b px-4 xl:px-8 pb-2 mb-10">
+          <div class="min-w-56 xl:w-64">
+            <span class="opacity-25 dot-after">{{ date format="M jS, Y" }}</span>
+            {{ relate:classes }}
+              <a class="opacity-25" href="{{ url }}">{{ abbreviation }}</a>
+            {{ /relate:classes }}
+          </div>
+          <a href="{{ url }}">
+            <h4 class="assignment-title text-3xl relative">{{ title }}</h4>
+          </a>
+        </li> 
+      {{ /relate:related_assignments }}
+    </ul>
+  </div>
+</div>

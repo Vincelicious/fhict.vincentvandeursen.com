@@ -13,3 +13,8 @@ npm-debug.log
 yarn-error.log
 .env
 .DS_Store
+bower_components/
+local/cache/*
+local/storage/*
+local/temp/*
+installer.php

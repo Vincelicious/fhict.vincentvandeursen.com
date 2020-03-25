@@ -1,0 +1,9 @@
+title: Assignments
+order: date
+fieldset: assignment
+template: assignments/show
+columns:
+  - title
+  - value: classes
+    header: Class
+  - date
