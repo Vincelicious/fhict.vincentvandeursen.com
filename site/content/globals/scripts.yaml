@@ -1,7 +1,3 @@
-head_scripts:
-  -
-    description: Favicon
-    code: '<link rel="icon" type="image/png" href="favicon.png">'
 fieldset: scripts
 title: Scripts
 id: 8be587b1-36bf-4bd8-be22-b5cc2157c601

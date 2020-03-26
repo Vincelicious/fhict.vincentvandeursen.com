@@ -95,11 +95,19 @@
   left: -20px;
   top: -9px;
   z-index: -5;
-  transition: all .3s;
+  transition: width .3s;
 }
 
 .button:hover::before {
   width: calc(100% + 40px);
+}
+
+.icon {
+  transition: transform 0.4s;
+}
+
+.button:hover .icon {
+  transform: translateX(4px);
 }
 
 /* 

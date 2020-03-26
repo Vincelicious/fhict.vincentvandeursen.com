@@ -701,12 +701,24 @@ video {
   left: -20px;
   top: -9px;
   z-index: -5;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: width .3s;
+  transition: width .3s;
 }
 
 .button:hover::before {
   width: calc(100% + 40px);
+}
+
+.icon {
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+.button:hover .icon {
+  -webkit-transform: translateX(4px);
+          transform: translateX(4px);
 }
 
 /* 
