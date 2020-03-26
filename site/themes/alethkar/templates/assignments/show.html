@@ -6,7 +6,9 @@
 </div>
 
 <div class="px-4 py-20 flex justify-center" style="background-color: {{ color }}">
-  <img  class="max-w-3xl" src="{{ cover }}" alt="{{ alt }}">
+  {{ assets:cover }}
+    <img class="assignment-image" src="{{ glide:url height='560' }}" alt="{{ alt }}">
+  {{ /assets:cover }}
 </div>
 
 <div class="container mx-auto px-4 mt-24 mb-32 relative flex flex-col items-center">
@@ -30,14 +32,18 @@
       {{ if size=="small" }}
 
         <figure class="container mx-auto text-center max-w-2xl">
-          <img class="pt-8 pb-4 w-full" src="{{ image }}" alt="{{ alt }}">
+          {{ assets:image }}
+            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='672' }}" alt="{{ alt }}">
+          {{ /assets:image }}
           <figcaption class="pb-12 italic">{{ caption }}</figcaption>
         </figure>
 
       {{ elseif size=="large" }}
 
         <figure class="container mx-auto text-center">
-          <img class="pt-8 pb-4 w-full" src="{{ image }}" alt="{{ alt }}">
+          {{ assets:image }}
+            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='1248'}}" alt="{{ alt }}">
+          {{ /assets:image }}
           <figcaption class="pb-12 italic">{{ caption }}</figcaption>
         </figure>
 

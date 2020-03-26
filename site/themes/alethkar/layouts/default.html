@@ -8,9 +8,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Another awesome Statamic site">
+    <meta name="description" content="Vincent van Deursen's portfolio website for semester 4 at Fontys">
     <title>{{ title }} | Vincent van Deursen</title>
     <link rel="stylesheet" href="{{ theme:css }}">
+    {{ scripts:head_scripts }}
+        {{ code }}
+    {{ /scripts:head_scripts }}
 </head>
 
 
@@ -28,6 +31,9 @@
     </div>
 
     <script src="{{ theme:js }}"></script>
+    {{ scripts:head_scripts }}
+        {{ code }}
+    {{ /scripts:head_scripts }}
 </body>
 
 </html>
