@@ -37,7 +37,7 @@ sections:
             fields:
               image:
                 container: main
-                folder: /
+                folder: assignments
                 restrict: false
                 max_files: 1
                 type: assets
@@ -54,6 +54,7 @@ sections:
                 type: radio
                 width: 33
                 display: Size
+                default: small
   sidebar:
     display: Sidebar
     fields:

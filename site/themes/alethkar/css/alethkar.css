@@ -644,6 +644,7 @@ video {
 
 .assignment-image {
   max-height: 560px;
+  width: auto;
 }
 
 /* 
