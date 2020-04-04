@@ -414,7 +414,7 @@
         },
         {
             "name": "edalzell/powertools",
-            "version": "dev-master",
+            "version": "dev-development",
             "dist": {
                 "type": "path",
                 "url": "../site/addons/PowerTools",
@@ -766,6 +766,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -810,6 +811,7 @@
                     "homepage": "http://www.acci.cz/"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
@@ -868,6 +870,7 @@
                 "serialize",
                 "tokenizer"
             ],
+            "abandoned": "opis/closure",
             "time": "2018-03-21T22:21:57+00:00"
         },
         {
