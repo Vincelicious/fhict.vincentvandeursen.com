@@ -7761,17 +7761,18 @@ _barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.init({
       });
     }
   }]
-});
-_barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.afterOnce(function (data) {
-  if (document.querySelector(".assignments-image")) {
-    addAssignmentCoverAnimation();
-  }
-});
-_barba_core__WEBPACK_IMPORTED_MODULE_0___default.a.hooks.after(function (data) {
-  if (document.querySelector(".assignments-image")) {
-    addAssignmentCoverAnimation();
-  }
-});
+}); // Enable cover image animation
+// ----------------------------------------
+// barba.hooks.afterOnce(data => {
+//   if (document.querySelector(".assignments-image")) {
+//     addAssignmentCoverAnimation();
+//   }
+// });
+// barba.hooks.after(data => {
+//   if (document.querySelector(".assignments-image")) {
+//     addAssignmentCoverAnimation();
+//   }
+// });
 
 /***/ }),
 

@@ -23,7 +23,7 @@
 
     {{ if type=="text" }}
 
-      <div class="content max-w-2xl">
+      <div class="content w-full max-w-2xl">
         {{ text }}
       </div>
 
@@ -33,7 +33,7 @@
 
         <figure class="container mx-auto text-center max-w-2xl">
           {{ assets:image }}
-            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='672' }}" alt="{{ alt }}">
+            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='672' dpr='2' }}" alt="{{ alt }}">
           {{ /assets:image }}
           <figcaption class="pb-12 italic">{{ caption }}</figcaption>
         </figure>
@@ -42,7 +42,7 @@
 
         <figure class="container mx-auto text-center">
           {{ assets:image }}
-            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='1248'}}" alt="{{ alt }}">
+            <img class="pt-8 pb-4 w-full" src="{{ glide:url width='1248' dpr='2' }}" alt="{{ alt }}">
           {{ /assets:image }}
           <figcaption class="pb-12 italic">{{ caption }}</figcaption>
         </figure>

@@ -5,7 +5,6 @@ import axios from "axios";
 
 // Changing and animating cover image
 // ----------------------------------------
-
 const fetchAssignmentCover = id => {
   return axios
     .get(`/!/Fetch/entry/${id}`)
@@ -125,14 +124,16 @@ barba.init({
   ]
 });
 
-barba.hooks.afterOnce(data => {
-  if (document.querySelector(".assignments-image")) {
-    addAssignmentCoverAnimation();
-  }
-});
+// Enable cover image animation
+// ----------------------------------------
+// barba.hooks.afterOnce(data => {
+//   if (document.querySelector(".assignments-image")) {
+//     addAssignmentCoverAnimation();
+//   }
+// });
 
-barba.hooks.after(data => {
-  if (document.querySelector(".assignments-image")) {
-    addAssignmentCoverAnimation();
-  }
-});
+// barba.hooks.after(data => {
+//   if (document.querySelector(".assignments-image")) {
+//     addAssignmentCoverAnimation();
+//   }
+// });
