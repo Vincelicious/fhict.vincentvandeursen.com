@@ -19,8 +19,9 @@
 }
 
 .assignments-image-container {
-  position: sticky;
-  top: 160px;
+  /* position: sticky; */
+  position: relative;
+  /* top: 160px; */
   height: 480px;
   margin-bottom: 80px;
 }

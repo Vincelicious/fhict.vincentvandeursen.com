@@ -620,9 +620,9 @@ video {
 }
 
 .assignments-image-container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 160px;
+  /* position: sticky; */
+  position: relative;
+  /* top: 160px; */
   height: 480px;
   margin-bottom: 80px;
 }
