@@ -55,6 +55,16 @@ sections:
                 width: 33
                 display: Size
                 default: small
+          video:
+            display: Video
+            fields:
+              video:
+                type: video
+                display: Video
+              caption:
+                type: text
+                display: Caption
+
   sidebar:
     display: Sidebar
     fields:

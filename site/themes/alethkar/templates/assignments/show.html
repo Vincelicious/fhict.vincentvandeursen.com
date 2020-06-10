@@ -27,6 +27,31 @@
         {{ text }}
       </div>
 
+    {{ elseif type == "video" }}
+
+      {{ if video | is_embeddable }}
+
+        <!-- Youtube and Video -->
+        <figure class="text-center">
+          <div class="pt-8 pb-4 w-full">
+            <iframe src="{{ video | embed_url }}" width="736px" height="400px"></iframe>
+          </div>
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+      {{ else }}
+
+        <!-- Other HTML5 video types -->
+        <figure class="text-center">
+          <div class="pt-8 pb-4 w-full">
+            <video src="{{ video | embed_url }}" controls autoplay></video>
+          </div>
+          <figcaption class="pb-12 italic">{{ caption }}</figcaption>
+        </figure>
+
+    {{ /if }}
+
+
     {{ elseif type=="image" }}
 
       {{ if size=="small" }}
