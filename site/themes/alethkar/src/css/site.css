@@ -127,6 +127,10 @@
     @apply mb-6 text-lg leading-relaxed;
   }
 
+  & > p:first-child {
+    @apply mt-0;
+  }
+
   & > blockquote {
     @apply italic;
   }
