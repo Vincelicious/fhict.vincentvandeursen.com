@@ -64,7 +64,12 @@ sections:
               caption:
                 type: text
                 display: Caption
-
+          github_gist:
+            display: GitHub Gist
+            fields:
+              embed:
+                type: text
+                display: Embed
   sidebar:
     display: Sidebar
     fields:

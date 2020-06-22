@@ -27,6 +27,12 @@
         {{ text }}
       </div>
 
+    {{ elseif type=="github_gist" }}
+
+      <div class="w-full max-w-2xl mb-2">
+        {{ embed | noparse }}
+      </div>
+
     {{ elseif type == "video" }}
 
       {{ if video | is_embeddable }}
